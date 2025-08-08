@@ -1,10 +1,10 @@
 export class SpawnXManager {
-  static spawnX = 500;
+  static spawnX = 400;
   static spwanX_Clouds = 200;
 
   static getNextSpawnX() {
     const currentX = this.spawnX;
-    this.spawnX += Math.random() * 10 + 100;
+    this.spawnX += Math.random() * 50 + 150;
     return currentX;
   }
 
