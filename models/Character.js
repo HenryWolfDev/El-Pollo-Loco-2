@@ -2,7 +2,7 @@ import { IntervalHub } from "../js/IntervalHub.js";
 import { MoveableObject } from "./moveableObject.js";
 
 export class Character extends MoveableObject {
-  x = 120;
+  x = 10;
   y = 250;
 
   constructor() {

@@ -1,10 +1,12 @@
 import { IntervalHub } from "../js/IntervalHub.js";
 import { Character } from "./Character.js";
 import { Chicken } from "./Chicken.js";
+import { Cloud } from "./Cloud.js";
 
 export class World {
   character = new Character();
   enemies = [new Chicken(), new Chicken(), new Chicken()];
+  clouds = [new Cloud(), new Cloud()];
 
   ctx;
   canvas;
@@ -29,6 +31,15 @@ export class World {
         enemy.y,
         enemy.width,
         enemy.height
+      );
+    });
+    this.clouds.forEach((cloud) => {
+      this.ctx.drawImage(
+        cloud.img,
+        cloud.x,
+        cloud.y,
+        cloud.width,
+        cloud.height
       );
     });
 
