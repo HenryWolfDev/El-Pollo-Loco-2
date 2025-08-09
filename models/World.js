@@ -5,7 +5,6 @@ import { Cloud } from "./Cloud.js";
 import { BackgroundObject } from "./BackgroundObject.js";
 
 export class World {
-  character = new Character();
   enemies = [new Chicken(), new Chicken(), new Chicken()];
   clouds = [new Cloud(), new Cloud(), new Cloud(), new Cloud()];
   backgroundObjects = [
@@ -17,11 +16,16 @@ export class World {
 
   ctx;
   canvas;
-  constructor(canvas) {
+  keyboard;
+  constructor(canvas, keyboard) {
     this.ctx = canvas.getContext("2d");
     this.canvas = canvas;
+    this.keyboard = keyboard;
+    this.character = new Character(this);
+
     this.draw();
   }
+
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 

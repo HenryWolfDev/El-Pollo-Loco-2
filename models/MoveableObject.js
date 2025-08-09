@@ -6,6 +6,9 @@ export class MoveableObject {
   img;
   height = 100;
   width = 150;
+  imageCache = {};
+  currentImage = 0;
+  speed = 0.15;
 
   constructor() {}
 
@@ -14,7 +17,19 @@ export class MoveableObject {
     this.img.src = path;
   }
 
+  loadImages(arr) {
+    arr.forEach((path) => {
+      let img = new Image();
+      img.src = path;
+      this.imageCache[path] = img;
+    });
+  }
+
   moveRight() {}
 
-  moveLeft() {}
+  moveLeft() {
+    IntervalHub.startInterval(() => {
+      this.x -= this.speed;
+    }, 1000 / 60);
+  }
 }
